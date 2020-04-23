@@ -1,10 +1,3 @@
-#for NEC set pc ip to 192.168.1.100
-#for EPSOM set PC ip what the projector shows
-#EPSONREMOTE
-# guest
-#pip install selenium
-#paste gekco in python root folder
-
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
@@ -35,21 +28,11 @@ while True:
     print (data.decode())
 
     if data.decode() == '1' :
-        #pyautogui.click(x=687, y=506)  # move to 100, 200, then click the left mouse button.
         print("ON")
         accordion.click()
     elif data.decode() == '2':
         print("OFF")
         accordion.click()
-        #pyautogui.click(x=687, y=506)  # move to 100, 200, then click the left mouse button.
 
 
-# driver = webdriver.Firefox()
-#
-# driver.get("http://192.168.0.103/index.html")
-# time.sleep(5)
-#
-# driver.switch_to.frame(driver.find_element_by_name("consoleN"))
-# accordion = driver.find_element_by_name('mute_pic')
 accordion.click()
-#element.close()
