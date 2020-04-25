@@ -13,7 +13,6 @@ driver.get("http://192.168.0.103/cgi-bin/Remote/Basic_Control")
 
 time.sleep(5)
 
-#driver.switch_to.frame(driver.find_element_by_name("consoleN"))
 accordion = driver.find_element_by_class_name('avmute')
 
 UDP_IP = "192.168.1.100"
