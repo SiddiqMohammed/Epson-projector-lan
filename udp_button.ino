@@ -1,32 +1,20 @@
 #include <Ethernet2.h>
 #include <EthernetUdp2.h>
 const int buttonPin1 = 7;    // the number of the pushbutton pin
-const int buttonPin2 = 3;    // the number of the pushbutton pin
-const int buttonPin3 = 4;    // the number of the pushbutton pin
 
 int buttonState1;             // the current reading from the input pin
 int lastButtonState1 = LOW;   // the previous reading from the input pin
-
-int buttonState2;             // the current reading from the input pin
-int lastButtonState2 = LOW;   // the previous reading from the input pin
-
-int buttonState3;             // the current reading from the input pin
-int lastButtonState3 = LOW;   // the previous reading from the input pin
 
 
 // the following variables are unsigned longs because the time, measured in
 // milliseconds, will quickly become a bigger number than can be stored in an int.
 unsigned long lastDebounceTime1 = 0;  // the last time the output pin was toggled
-unsigned long lastDebounceTime2 = 0;  // the last time the output pin was toggled
-unsigned long lastDebounceTime3 = 0;  // the last time the output pin was toggled
 String  ReplyBuffer = "";
 unsigned long debounceDelay = 0;    // the debounce time; increase if the output flickers
 
 char incomingData[45];
 char *saveptr;
 String  ReplyBuffer1 = "";
-String  ReplyBuffer2 = "";
-String  ReplyBuffer3 = "";
 
 byte mac[] = { 0x2C, 0xF7, 0xF1, 0x08, 0x31, 0x4E }; //physical mac address
 
@@ -68,9 +56,6 @@ void setup() {
 void loop()
 {
   buttonone();
-  //  buttontwo();
-  //  buttonthree();
-  //  Serial.println(reading1);
   val = digitalRead(BUTTON_PIN);
   digitalWrite(remotePin, val);
 }
@@ -103,10 +88,8 @@ void tete() {
   // read the state of the switch/button:
   currentState = digitalRead(BUTTON_PIN);
 
-
   // save the the last state
   lastState = currentState;
-
 
   x++;
 
@@ -130,8 +113,5 @@ void tete() {
     ReplyBuffer1 = "";
     Udp.flush();
   }
-
-
-
-  //  delay(20);
+  
 }
